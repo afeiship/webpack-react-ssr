@@ -1,2 +1,2 @@
 # wepack-react-ssr
-> Webpack react ssr with koa2.
+> React SSR solution based on webpack2.
