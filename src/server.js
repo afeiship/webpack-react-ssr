@@ -1,4 +1,3 @@
-'use strict';
 import koa from 'koa';
 import koaStatic from 'koa-static';
 import path from 'path';

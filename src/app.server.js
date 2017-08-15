@@ -1,4 +1,3 @@
-'use strict';
 import { RouterContext, match } from 'react-router';
 import { renderToString } from 'react-dom/server';
 import React, { Component } from 'react';
@@ -42,7 +41,7 @@ function renderIndex(inAppShellHtml, inInitialState) {
           ${inAppShellHtml}
           <script type="application/javascript" src="/build/bundle.js"></script>
       </body>
-    </html>`;
+    </html>`.trim();
 }
 
 module.exports = {
