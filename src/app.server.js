@@ -1,9 +1,11 @@
 import { RouterContext, match } from 'react-router';
 import { renderToString } from 'react-dom/server';
 import React, { Component } from 'react';
-// import fs from 'fs';
+import ejs from 'ejs';
+import fs from 'fs';
+import path from 'path';
 
-class App extends Component{
+class AppShell extends Component{
   render(){
     return (
       <main className="iam-from-server" id="root" data-role="app-shell">
@@ -14,26 +16,13 @@ class App extends Component{
 }
 
 function * renderApp(next) {
-  const initialState = { test: 'afeiship' };
-  const appShellHtml = renderToString(<App />);
-
-  this.body = `
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <meta charset="utf-8">
-          <title>React SSR</title>
-          <script>
-            window.__INITIAL_STATE__ = ${JSON.stringify(initialState || {})}
-          </script>
-        </head>
-        <body>
-            ${appShellHtml}
-            <script type="application/javascript" src="/build/bundle.js"></script>
-        </body>
-      </html>`.trim();
+  const initialState = JSON.stringify({ test: 'afeiship' });
+  const appShell = renderToString(<AppShell />);
+  
+  this.body = ejs.render( String(fs.readFileSync(path.resolve(__dirname, './app-shell.ejs'))) ,{
+    appShell,
+    initialState
+  });
 }
 
-module.exports = {
-  renderApp
-};
+export default renderApp;
