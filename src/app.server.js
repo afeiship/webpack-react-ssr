@@ -2,7 +2,6 @@ import {renderToString} from 'react-dom/server';
 import React, {Component} from 'react';
 import ejs from 'ejs';
 import { readFileSync } from 'fs'
-import path from 'path';
 
 class AppShell extends Component {
   render() {
