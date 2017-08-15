@@ -14,15 +14,29 @@ class AppShell extends Component {
   }
 }
 
+function renderFileThen(inFilename,inData){
+  return new Promise((resolve,reject)=>{
+    ejs.renderFile(inFilename,inData,(err,result)=>{
+      if(err) reject(err);
+      resolve(result)
+    });
+  })
+}
+
 function * renderApp(next) {
   const initialState = JSON.stringify({test: 'afeiship'});
   const appShell = renderToString(<AppShell />);
-  ejs.renderFile(`${__dirname}/app-shell.ejs`, {
-    appShell,
-    initialState
-  }, (err, str) => {
-    this.body = str;
+
+  renderFileThen(`${__dirname}/app-shell.ejs`, { appShell, initialState } ).then((result)=>{
+    this.body = result;
   });
+
+  // ejs.renderFile(`${__dirname}/app-shell.ejs`, {
+  //   appShell,
+  //   initialState
+  // }, (err, str) => {
+  //   this.body = str;
+  // });
 }
 
 export default renderApp;
