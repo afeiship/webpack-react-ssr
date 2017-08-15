@@ -29,8 +29,7 @@
   "dependencies": {
     "ejs": "^2.5.7",
     "koa": "^1.2.4",
-    "koa-static": "^2.0.0",
-    "react-router": "^2.8.1"
+    "koa-static": "^2.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.11.0",
