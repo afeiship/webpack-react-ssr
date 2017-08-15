@@ -1,0 +1,48 @@
+{
+  "name": "webpack-react-ssr",
+  "version": "0.0.1",
+  "description": "React SSR solution based on webpack2.",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf ./public/build",
+    "prestart":"npm run clean && NODE_ENV=development webpack",
+    "start": "NODE_ENV=development nodemon --exec babel-node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afeiship/webpack-react-ssr.git"
+  },
+  "keywords": [
+    "react",
+    "koa",
+    "webpack",
+    "ssr",
+    "server",
+    "koa2"
+  ],
+  "author": "afei",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/afeiship/webpack-react-ssr/issues"
+  },
+  "homepage": "https://github.com/afeiship/webpack-react-ssr#readme",
+  "dependencies": {
+    "koa": "^1.2.4",
+    "koa-static": "^2.0.0",
+    "nodemon": "^1.11.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-router": "^2.8.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-1": "^6.16.0",
+    "webpack": "^1.13.2"
+  }
+}
