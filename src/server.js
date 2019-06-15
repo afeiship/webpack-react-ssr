@@ -1,14 +1,13 @@
-import koa from 'koa';
+import express from 'express';
 import koaStatic from 'koa-static';
 import path from 'path';
-import renderApp from './app-server.js';
+import appServer from './app-server.js';
 
-const app = koa();
+const app = express();
 const port = process.env.PORT || 3000;
-const publicDir = path.join(__dirname, '../public');
 
-app.use(koaStatic(publicDir));
-app.use(renderApp);
+app.use(express.static('public'));
+app.get('/', appServer);
 
 app.listen(port, () => {
   console.log({ port, env: process.env.NODE_ENV, pid: process.pid }, 'Server is listening');

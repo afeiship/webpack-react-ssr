@@ -1,7 +1,5 @@
 import path, { join } from 'path';
 
-console.log('babel webpack!');
-
 export default {
   mode: 'development',
   entry: './src/app-client.js',

@@ -14,11 +14,10 @@
   },
   "keywords": [
     "react",
-    "koa",
     "webpack",
     "ssr",
     "server",
-    "koa2"
+    "express"
   ],
   "author": "afei",
   "license": "MIT",
@@ -28,8 +27,7 @@
   "homepage": "https://github.com/afeiship/webpack-react-ssr#readme",
   "dependencies": {
     "ejs": "^2.5.7",
-    "koa": "^1.2.4",
-    "koa-static": "^2.0.0",
+    "express": "^4.17.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },

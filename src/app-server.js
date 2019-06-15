@@ -1,7 +1,6 @@
-import {renderToString} from 'react-dom/server';
-import React, {Component} from 'react';
+import { renderToString } from 'react-dom/server';
+import React, { Component } from 'react';
 import ejs from 'ejs';
-import { readFileSync } from 'fs'
 
 class AppShell extends Component {
   render() {
@@ -13,8 +12,7 @@ class AppShell extends Component {
   }
 }
 
-
-function * renderApp(next) {
+export default (req, res) => {
   const initialState = JSON.stringify({
     name: 'afeiship',
     homepage: 'https://github.com/afeiship'
@@ -23,8 +21,6 @@ function * renderApp(next) {
   const filename = `${__dirname}/app-shell.ejs`;
 
   ejs.renderFile(filename, { appShell, initialState }, (err, str) => {
-    this.body = str;
+    res.send(str);
   });
-}
-
-export default renderApp;
+};
