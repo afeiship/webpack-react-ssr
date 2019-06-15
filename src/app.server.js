@@ -15,7 +15,10 @@ class AppShell extends Component {
 
 
 function * renderApp(next) {
-  const initialState = JSON.stringify({test: 'afeiship'});
+  const initialState = JSON.stringify({
+    name: 'afeiship',
+    homepage: 'https://github.com/afeiship'
+  });
   const appShell = renderToString(<AppShell />);
   const filename = `${__dirname}/app-shell.ejs`;
 

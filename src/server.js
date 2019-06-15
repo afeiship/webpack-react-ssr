@@ -4,7 +4,7 @@ import path from 'path';
 import renderApp from './app.server.js';
 
 const app = koa();
-const port = process.env.PORT || 3301;
+const port = process.env.PORT || 3000;
 const publicDir = path.join(__dirname, '../public');
 
 app.use(koaStatic(publicDir));
