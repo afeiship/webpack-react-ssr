@@ -1,7 +1,7 @@
 import koa from 'koa';
 import koaStatic from 'koa-static';
 import path from 'path';
-import renderApp from './app.server.js';
+import renderApp from './app-server.js';
 
 const app = koa();
 const port = process.env.PORT || 3000;

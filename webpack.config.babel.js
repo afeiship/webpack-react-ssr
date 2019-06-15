@@ -1,17 +1,16 @@
-import path from 'path';
+import path, { join } from 'path';
+
+console.log('babel webpack!');
 
 export default {
-  entry: ['babel-core/register', 'babel-polyfill', path.join(__dirname, 'src/app.client.js')],
+  mode: 'development',
+  entry: './src/app-client.js',
   output: {
-    path: path.join(__dirname, 'public/build'),
+    path: join(__dirname, 'public/build'),
     filename: 'bundle.js'
   },
-  resolve: {
-    root: path.join(__dirname, 'src'),
-    extensions: ['', '.js', '.jsx', '.json']
-  },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
