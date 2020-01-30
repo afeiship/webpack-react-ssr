@@ -13,7 +13,9 @@ class App extends React.Component {
     return (
       <div className="i-am-from-client">
         <span>Hello React SSR with!!!</span>
-        <em>{JSON.stringify(this.state.rawData, null, 4)}</em>
+        <pre>
+          <code>{JSON.stringify(this.state.rawData, null, 2)}</code>
+        </pre>
       </div>
     );
   }
