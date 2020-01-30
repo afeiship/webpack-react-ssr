@@ -1,19 +1,6 @@
 import path, { join } from 'path';
 
-export default {
-  mode: 'development',
-  entry: './src/app-client.js',
-  output: {
-    path: join(__dirname, 'public/build'),
-    filename: 'bundle.js'
-  },
-  module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/
-      }
-    ]
-  }
+export default (inEnv) => {
+  const { NODE_ENV } = process.env;
+  return require(`./build/webpack.${NODE_ENV}.js`).default(inEnv);
 };

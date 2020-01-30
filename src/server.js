@@ -1,15 +1,19 @@
 import express from 'express';
-import appServer from './app-server.js';
+import React from 'react';
+import ReactDOM from 'react-dom/server';
+import App from './app';
+import template from './template';
+
 
 const app = express();
-const port = process.env.PORT || 3000;
+app.use(express.static('dist/public'));
 
-app.use(express.static('public'));
-app.get('/', appServer);
+app.get('/', (req, res) => {
+  const body = ReactDOM.renderToString(<App />);
+  const html = template(body);
+  res.send(html);
+});
 
-app.listen(port, () => {
-  console.log(
-    { port, env: process.env.NODE_ENV, pid: process.pid },
-    'Server is listening'
-  );
+app.listen(3000, () => {
+  console.log('Listening on port 3000');
 });
